@@ -702,6 +702,9 @@ class MedusaApp(object):
 
         self.PRIVACY_LEVEL = 'normal'
 
+        self.GLOTZ_API_KEY = '9DAF49C96CBF8DAC'
+
+
         self.PROPERS_SEARCH_INTERVAL = {
             '15m': 15,
             '45m': 45,

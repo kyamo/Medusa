@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 from builtins import str
 
 from medusa.app import app
+from medusa.indexers.glotz.api import GLOTZ
 from medusa.indexers.imdb.api import Imdb
 from medusa.indexers.tmdb.api import Tmdb
 from medusa.indexers.tvdbv2.api import TVDBv2
@@ -32,6 +33,7 @@ INDEXER_TVDBV2 = 1
 INDEXER_TVRAGE = 2  # Must keep
 INDEXER_TVMAZE = 3
 INDEXER_TMDB = 4
+INDEXER_GLOTZ = 5
 # FIXME: Change all references to EXTERNAL_IMDB to INDEXER_IMDB
 INDEXER_IMDB = EXTERNAL_IMDB = 10
 EXTERNAL_ANIDB = 11
@@ -129,6 +131,24 @@ indexerConfig = {
         'mapped_to': 'tmdb_id',  # The attribute to which other indexers can map there tmdb id to
         'identifier': 'tmdb',  # Also used as key for the custom scenename exceptions. (_get_custom_exceptions())
     },
+    INDEXER_GLOTZ: {
+        'enabled': True,
+        'id': INDEXER_GLOTZ,
+        'name': 'Glotz',
+        'module': GLOTZ,
+        'api_params': {
+            'language': 'de',
+            'use_zip': True,
+            'session': IndexerSession(cache_control={'cache_etags': False}),
+        },
+        'xem_origin': 'tvdb',
+        'icon': 'glotz16.png',
+        'scene_loc': '{base_url}/scene_exceptions/scene_exceptions_tvdb.json'.format(base_url=app.BASE_PYMEDUSA_URL),
+        'base_url': 'https://www.glotz.info/api/',
+        'show_url': 'https://www.glotz.info/show/',
+        'mapped_to': 'tvdb_id',  # The attribute to which other indexers can map there thetvdb id to
+        'identifier': 'glotz',  # Also used as key for the custom scenename exceptions. (_get_custom_exceptions())
+    },
     INDEXER_IMDB: {
         'enabled': True,
         'id': INDEXER_IMDB,
@@ -171,7 +191,6 @@ def create_config_json(indexer):
 
 
 def get_indexer_config():
-    """Create a per indexer and main indexer config, used by the apiv2."""
     indexers = {
         indexerConfig[indexer]['identifier']: create_config_json(indexerConfig[indexer]) for indexer in indexerConfig
     }
