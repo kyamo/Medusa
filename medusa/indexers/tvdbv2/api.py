@@ -270,8 +270,9 @@ class TVDBv2(BaseIndexer):
                         )
                         if paged_episodes.data:
                             results += paged_episodes.data
+                        if paged_episodes.links:
                             last = paged_episodes.links.last
-                            page += 1
+                        page += 1
             else:
                 while page <= last:
                     paged_episodes = self.config['session'].series_api.series_id_episodes_query_get(
@@ -279,8 +280,9 @@ class TVDBv2(BaseIndexer):
                     )
                     if paged_episodes.data:
                         results += paged_episodes.data
+                    if paged_episodes.links:
                         last = paged_episodes.links.last
-                        page += 1
+                    page += 1
 
             if results and full_info:
                 results = self._get_episodes_info(tvdb_id, results, season=aired_season)
@@ -340,7 +342,7 @@ class TVDBv2(BaseIndexer):
                     flag_dvd_numbering = True
 
             if self.config['dvdorder'] and not flag_dvd_numbering:
-                log.warning(
+                log.info(
                     'No DVD order available for episode (season: {0}, episode: {1}). Skipping this episode. '
                     'If you want to have this episode visible, please change it on the TheTvdb site, '
                     'or consider disabling DVD order for the show: {2}({3})',

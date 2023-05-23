@@ -1,3 +1,108 @@
+## 1.0.15 (21-05-2023)
+
+#### Fixes
+- Fix error with malformed TVDB data missing links
+
+-----
+
+## 1.0.14 (20-05-2023)
+
+#### Improvements
+- Update requests dependencies
+- Update YggTorrent domain (Thanks to @cpainchaud)
+- Add new logos for networks (Thanks to @purevertigo)
+- Add missing time zone for networks (Thanks to @YogSottot)
+
+#### Fixes
+- Fix endless loop caused by malformed TVDB data (Thanks to @dotsam)
+
+-----
+
+## 1.0.13 (22-03-2023)
+
+#### Improvements
+- Replace trakt with pytrakt
+
+#### Fixes
+- Fix git subprocess call for Windows paths with spaces
+
+-----
+
+## 1.0.12 (03-03-2023)
+
+#### New Features
+- Add RSS Feed Client (Thanks to @sawyersteven)
+
+#### Improvements
+- Update many Python dependencies
+
+#### Fixes
+- Ensure that git_path is a valid file (Thanks to @pizza-power)
+- Avoid exception when the filepart doesn't match a season
+- Encode NZBGet username, password and host
+
+-----
+
+## 1.0.11 (14-01-2023)
+
+#### Improvements
+- Put showid search results on top
+- Change missing directory log level to debug
+
+#### Fixes
+- Fix parsing for shows that have year in the title
+
+-----
+
+## 1.0.10 (15-12-2022)
+
+#### Improvements
+- Add TVNZ 1 logo
+- Add compatibility to Python 3.11
+- Allow to add scene exception to force exact show title match
+
+#### Fixes
+- Set english language in requests header for Addic7ed subs provider
+- Avoid error when post-processing path is None
+- Fix error log when ffmpeg doesn't detect audio or video
+
+-----
+
+## 1.0.9 (11-10-2022)
+
+#### Improvements
+- Always get current version on startup ([10925](https://github.com/pymedusa/Medusa/pull/10925))
+- Remove copy fallback when hardlink failed ([10952](https://github.com/pymedusa/Medusa/pull/10952))
+- Change log level to info for episodes not in DVD order ([10872](https://github.com/pymedusa/Medusa/pull/10872))
+- Update M-net logo ([10937](https://github.com/pymedusa/Medusa/pull/10937))
+
+#### Fixes
+- Normalize the imdb_id ([10923](https://github.com/pymedusa/Medusa/pull/10923))
+- Replace non-UTF8 chars instead of error for Plexmatch file ([10948](https://github.com/pymedusa/Medusa/pull/10948))
+- Fix Download Handler log filter ([10953](https://github.com/pymedusa/Medusa/pull/10953))
+
+-----
+
+## 1.0.8 (05-09-2022)
+
+#### Fixes
+- Catch exception when we can't translate a title to imdb_id. ([10912](https://github.com/pymedusa/Medusa/pull/10912))
+- Authenticate websocket connections. ([10914](https://github.com/pymedusa/Medusa/pull/10914))
+
+-----
+
+## 1.0.7 (25-08-2022)
+
+#### Improvements
+- Add ffmpeg to docker build for postprocessing
+
+#### Fixes
+- Add encoding when working with plexmatch file
+- Fix anidb cache key causing exceptions
+- Various smaller fixes
+
+-----
+
 ## 1.0.6 (25-07-2022)
 
 #### Improvements
