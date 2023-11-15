@@ -1,3 +1,38 @@
+## 1.0.18 (29-10-2023)
+
+#### Improvements
+- Update some JS and Python dependencies
+- Add a few new logos (Thanks to @purevertigo)
+- Update Yggtorrent domain (Thanks to @cpainchaud)
+
+#### Fixes
+- Don't overwrite manual post-processing delete preference
+- Fix color of show-header in light theme (Thanks to @cheese1)
+
+-----
+
+## 1.0.17 (29-06-2023)
+
+#### New Features
+- Add TheOldSchool torrent provider (Thanks to @IamMika23)
+
+#### Improvements
+- Update IPTorrents default domain
+- Update many dependencies
+
+#### Fixes
+- Fix saving order of various tables
+
+-----
+
+## 1.0.16 (27-05-2023)
+
+#### Improvements
+- Raise warning when TVDB returns malformed data
+- Update many JavaScript and Python dependencies
+
+-----
+
 ## 1.0.15 (21-05-2023)
 
 #### Fixes
